@@ -10,7 +10,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from webdriver_manager.chrome import ChromeDriverManager
 
 
-def load_mc_law_links(file_path="data/mc_laws.txt"):
+def load_mc_law_links(file_path="data/raw_data/mc_laws.txt"):
     links = []
     with open(file_path, "r", encoding="utf-8") as file:
         for line in file:
@@ -158,7 +158,7 @@ def process_all_mc_laws():
             print(f"❌ Error scraping {name}: {e}")
         time.sleep(2)
 
-    output_path = "data/mc_laws_detailed.json"
+    output_path = "data/scraped_data/mc_laws_detailed.json"
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump(all_data, f, ensure_ascii=False, indent=2)
 

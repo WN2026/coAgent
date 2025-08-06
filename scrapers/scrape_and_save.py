@@ -129,7 +129,7 @@ def build_structure(root: Tag) -> List[Dict[str, Any]]:
 
 
 # I/O 
-def load_sources(path: str = "data/legal_sources.txt") -> List[Dict[str, str]]:
+def load_sources(path: str = "data/raw_data/boe_laws.txt") -> List[Dict[str, str]]:
     out = []
     for line in pathlib.Path(path).read_text("utf8").splitlines():
         if line.strip() and not line.lstrip().startswith("#"):
@@ -180,7 +180,7 @@ def main() -> None:
         if data:
             results.append(data)
 
-    out_path = pathlib.Path("data/boe_laws_detailed.json")
+    out_path = pathlib.Path("data/scraped_data/boe_laws_detailed.json")
     out_path.write_text(
         json.dumps(results, ensure_ascii=False, indent=2), encoding="utf8"
     )

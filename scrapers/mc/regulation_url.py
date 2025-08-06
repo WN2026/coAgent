@@ -31,7 +31,7 @@ def scrape_rule_clickable_parts():
             full_url = base_url + href
             laws.append(f"{full_url} #{title}")
 
-    with open("data/mc_laws.txt", "w", encoding="utf-8") as f:
+    with open("data/raw_data/mc_laws.txt", "w", encoding="utf-8") as f:
         f.write("\n".join(laws))
 
     print(f"✅ Found and saved {len(laws)} laws to mc_laws.txt")
